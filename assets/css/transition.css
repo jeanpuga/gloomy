@@ -1,0 +1,42 @@
+﻿.page-right.ng-enter {
+    -webkit-animation: slideInRight 0.7s both ease-out;
+    -moz-animation: slideInRight 0.7s both ease-out;
+    animation: slideInRight 0.7s both ease-out;
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInRight {
+    0% {
+        background-color: #263238;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+    }
+    100% {
+        background-color: #263238;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        background-color: #263238;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+    }
+    100% {
+        background-color: #263238;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}

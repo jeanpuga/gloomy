@@ -1,0 +1,19 @@
+<p class="amber-text">Solicitação do token de acesso.</p>
+<article ng-controller='etapa2Controller as vm' ng-cloak>
+    <section>
+
+        <form class="content">
+            <div class="row">
+                <div class="input-field col s12 m4 13 white-text">
+                    <input name="token" type="text" maxlength="6" ng-model="vm.form.token">
+                    <label for="token">Token</label>
+                </div>
+
+                <div class="input-field col s12 m3 13">
+                    <a id="btn_forward" class="btn-floating btn amber pulse" ng-click="vm.action()"><i class="material-icons black-text">arrow_forward</i></a>
+                </div>
+            </div>
+        </form>
+
+    </section>
+</article>

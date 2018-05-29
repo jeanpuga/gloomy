@@ -1,0 +1,44 @@
+<div ng-controller='nodejsController as vm' ng-cloak>
+    <h4>{{vm.hello}}</h4>
+
+    <section class="grid-3-cols">
+        <fieldset>
+            <legend>Faça seu login</legend>
+            <form name="formNode">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" minlength="5" name="formNode.user" class="validate" required ng-model="vm.user" ng-change="vm.validForm()">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" minlength="5" name="formNode.pass" required class="validate" ng-model="vm.pass" ng-change="vm.validForm()">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light right" ng-click="vm.action()" ng-disabled="(formNode.$invalid || formNode.$pristine || vm.isDisabled)">Execute o Crawler
+                  </button>
+            </form>
+        </fieldset>
+
+        <!-- <fieldset>
+            <legend>Aguarde a captura de imagem</legend>
+            <section id="imagem">
+                <div class="progress valign-wrapper" style="margin-top:25%;" ng-show="!vm.isShow">
+                    <div class="indeterminate "></div>
+                </div>
+                <img id="image_whatc" ng-src="{{imageSource}}" width="100%" image-crop ng-show="vm.isShow">
+            </section>
+        </fieldset> -->
+
+        <fieldset>
+            <legend>Aguarde o retorno dos dados</legend>
+            <section id="dados">
+                <div class="progress valign-wrapper" style="margin-top:25%;">
+                    <div class="indeterminate "></div>
+                </div>
+            </section>
+        </fieldset>
+    </section>
+    </section>

@@ -1,0 +1,32 @@
+<p class="amber-text">Digite os dados para conexão.</p>
+<article ng-controller='etapa1Controller as vm' ng-cloak>
+    <section>
+        <form class="content">
+            <div class="row">
+                <div class="input-field col s3 m3 13 white-text">
+                    <input name="agencia" type="text" maxlength="5" ng-model="vm.form.agencia">
+                    <label for="agencia">Agência</label>
+                </div>
+                <div class="input-field col s6 m4 13 white-text">
+                    <input name="contacorrente" type="text" maxlength="6" ng-model="vm.form.contacorrente">
+                    <label for="contacorrente">Conta Corrente</label>
+                </div>
+                <div class="input-field col s3 m1 13 white-text">
+                    <input name="digito" type="text" maxlength="1" ng-model="vm.form.digito">
+                    <label for="digito">Digito</label>
+                </div>
+                <div class="input-field col s6 m3 13 white-text">
+                    <input name="senha" type="text" maxlength="4" ng-model="vm.form.senha">
+                    <label for="senha">Senha</label>
+                </div>
+
+                <div class="input-field col s6 m3 13">
+                    <a id="btn_forward" class="btn-floating btn amber pulse"><i class="material-icons black-text" ng-click="vm.action()">arrow_forward</i></a>
+                </div>
+
+
+            </div>
+        </form>
+
+    </section>
+</article>

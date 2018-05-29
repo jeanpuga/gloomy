@@ -1,0 +1,33 @@
+<p class="amber-text">Dados retornados.</p>
+
+<article ng-controller='etapa3Controller as vm' ng-cloak>
+    <section>
+
+        <table class="responsive-table">
+            <thead class="amber-text">
+                <tr>
+                    <th>Saudação</th>
+                    <th>Nome</th>
+                    <th>Agencia</th>
+                    <th>Conta</th>
+                    <th>Último</th>
+                    <th>Acesso N</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody class="white-text">
+                <tr>
+                    <td>{{vm.saudacao}}</td>
+                    <td>{{vm.nome}}</td>
+                    <td>{{vm.agencia}}</td>
+                    <td>{{vm.conta}}</td>
+                    <td>{{vm.ultimo}}</td>
+                    <td>{{vm.acessonumero}}</td>
+                    <td>{{vm.email}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <a id="btn_forward" class="btn-floating btn amber pulse" ng-click="vm.action()"><i class="material-icons black-text">arrow_forward</i></a>
+    </section>
+</article>

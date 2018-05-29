@@ -1,0 +1,23 @@
+<p class="amber-text">Dados retornados.</p>
+
+<article ng-controller='etapa4Controller as vm' ng-cloak>
+    <section>
+
+        <table class="responsive-table">
+            <thead class="amber-text">
+                <tr>
+                    <th>Agencia</th>
+                    <th>Conta</th>
+                </tr>
+            </thead>
+            <tbody class="white-text">
+                <tr>
+                    <td>{{vm.agencia}}</td>
+                    <td>{{vm.contacorrente}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <a id="btn_forward" class="btn-floating btn red pulse" ng-click="vm.action()"><i class="material-icons black-text">transfer_within_a_station</i></a>
+    </section>
+</article>
