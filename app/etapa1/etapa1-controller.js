@@ -1,6 +1,6 @@
 angular.module('app').controller('etapa1Controller', etapa1Controller);
 
-function etapa1Controller($scope, $location, $http) {
+function etapa1Controller($scope, $location, http) {
     let vm = this;
     vm.form = {};
 
@@ -9,12 +9,12 @@ function etapa1Controller($scope, $location, $http) {
 
 
     let action = function() {
-        vm.form = {
-            'agencia': 2866,
-            'contacorrente': 16911,
-            'digito': 0,
-            'senha': 2373
-        };
+        // vm.form = {
+        //     'agencia': ,
+        //     'contacorrente': ,
+        //     'digito': ,
+        //     'senha': 
+        // };
 
         let data = {
             login: {
@@ -25,20 +25,8 @@ function etapa1Controller($scope, $location, $http) {
             }
         };
 
-        // $(document).ready(function() {
-        //     M.updateTextFields();
-        // });
-
-
-        // ,
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer 123456789'
-        //         }
-
-
-        $http({
-                url: 'http://jeanpuga.ddns.net:82/process',
+        http.post({
+                url: '/process',
                 method: "POST",
                 data: JSON.stringify(data)
             })
@@ -55,4 +43,4 @@ function etapa1Controller($scope, $location, $http) {
 
 }
 
-etapa1Controller.$inject = ['$scope', '$location', '$http'];
+etapa1Controller.$inject = ['$scope', '$location', 'http'];
