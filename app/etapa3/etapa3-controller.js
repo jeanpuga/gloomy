@@ -1,26 +1,19 @@
 angular.module('app').controller('etapa3Controller', etapa3Controller);
 
-function etapa3Controller($scope, $location, $http) {
+function etapa3Controller($scope, $location, http, $rootScope) {
     let vm = this;
-    // vm.saudacao = "";
-    // vm.nome = "";
-    // vm.agencia = "";
-    // vm.conta = "";
-    // vm.ultimo = "";
-    // vm.acessonumero = "";
-    // vm.email = "";
 
     $scope.pageClass = 'page-right';
 
-    var load = function() {
-        $http({
-                url: 'http://jeanpuga.ddns.net:82/teste',
+    vm.load = function() {
+        http.post({
+                url: 'teste',
                 method: "POST",
                 data: null
             })
             .then(function(response) {
-                console.log(response)
-                if (response.status == 200 && response.data[0] != "Sem variavel") {
+                console.log(response);
+                if (response.status == 200 && !!response.data[0] && response.data[0] != { ok: "nok" }) {
                     vm.saudacao = response.data[0];
                     vm.nome = response.data[1];
                     vm.agencia = response.data[2];
@@ -32,15 +25,19 @@ function etapa3Controller($scope, $location, $http) {
             }, function(err) {
                 console.log(err);
             });
+
     }
 
-
-    var action = function() {
-        $location.path("/etapa4");
+    vm.action = function() {
+        $location.path('/etapa4');
     }
 
-    vm.action = action;
-    load();
+    setTimeout(() => {
+        vm.load();
+    }, 2000);
+
+
+
 }
 
-etapa3Controller.$inject = ['$scope', '$location', '$http'];
+etapa3Controller.$inject = ['$scope', '$location', 'http', '$rootScope'];

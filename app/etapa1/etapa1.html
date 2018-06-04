@@ -4,24 +4,24 @@
         <form class="content">
             <div class="row">
                 <div class="input-field col s3 m3 13 white-text">
-                    <input name="agencia" type="text" maxlength="5" ng-model="vm.form.agencia">
+                    <input name="agencia" type="text" maxlength="5" ng-model="vm.form.agencia" ng-disabled="vm.isdisabled">
                     <label for="agencia">Agência</label>
                 </div>
                 <div class="input-field col s6 m4 13 white-text">
-                    <input name="contacorrente" type="text" maxlength="6" ng-model="vm.form.contacorrente">
+                    <input name="contacorrente" type="text" maxlength="6" ng-model="vm.form.contacorrente" ng-disabled="vm.isdisabled">
                     <label for="contacorrente">Conta Corrente</label>
                 </div>
                 <div class="input-field col s3 m1 13 white-text">
-                    <input name="digito" type="text" maxlength="1" ng-model="vm.form.digito">
+                    <input name="digito" type="text" maxlength="1" ng-model="vm.form.digito" ng-disabled="vm.isdisabled">
                     <label for="digito">Digito</label>
                 </div>
                 <div class="input-field col s6 m3 13 white-text">
-                    <input name="senha" type="text" maxlength="4" ng-model="vm.form.senha">
+                    <input name="senha" type="text" maxlength="4" ng-model="vm.form.senha" ng-disabled="vm.isdisabled">
                     <label for="senha">Senha</label>
                 </div>
 
                 <div class="input-field col s6 m3 13">
-                    <a id="btn_forward" class="btn-floating btn amber pulse"><i class="material-icons black-text" ng-click="vm.action()">arrow_forward</i></a>
+                    <a id="btn_forward" class="btn-floating btn amber pulse"><i class="material-icons black-text" ng-click="vm.action()" ng-disabled="vm.isdisabled">arrow_forward</i></a>
                 </div>
 
 

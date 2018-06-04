@@ -1,6 +1,6 @@
 angular.module('app').controller('etapa1Controller', etapa1Controller);
 
-function etapa1Controller($scope, $location, http) {
+function etapa1Controller($scope, $location, http, $rootScope) {
     let vm = this;
     vm.form = {};
 
@@ -9,38 +9,43 @@ function etapa1Controller($scope, $location, http) {
 
 
     let action = function() {
-        // vm.form = {
-        //     'agencia': ,
-        //     'contacorrente': ,
-        //     'digito': ,
-        //     'senha': 
-        // };
+        vm.isdisabled = true;
+
+
 
         let data = {
             login: {
-                'agencia': vm.form.agencia.toString(),
-                'contacorrente': vm.form.contacorrente.toString(),
-                'digito': vm.form.digito.toString(),
-                'senha': vm.form.senha.toString()
+                'agencia': vm.form.agencia,
+                'contacorrente': vm.form.contacorrente,
+                'digito': vm.form.digito,
+                'senha': vm.form.senha
             }
         };
 
         http.post({
-                url: '/process',
+                url: 'process',
                 method: "POST",
                 data: JSON.stringify(data)
             })
             .then(function(response) {
-                    $location.path("/etapa2");
+                    // event.preventDefault();
+                    // $location.path("/etapa2");
+                    if (response.status == 200) {
+                        $rootScope.$apply(function() { $location.path('/etapa2'); });
+                    }
+
+
                 },
                 function(err) { // optional
 
                     alert(JSON.stringify(err));
-                    console.log(err) // failed
+                    console.log(err); // failed
+                    vm.isdisabled = false;
+
                 });
     }
     vm.action = action;
 
 }
 
-etapa1Controller.$inject = ['$scope', '$location', 'http'];
+etapa1Controller.$inject = ['$scope', '$location', 'http', '$rootScope'];

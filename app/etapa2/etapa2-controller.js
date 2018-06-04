@@ -1,6 +1,6 @@
 angular.module('app').controller('etapa2Controller', etapa2Controller);
 
-function etapa2Controller($scope, $location, $http) {
+function etapa2Controller($scope, $location, http, $rootScope) {
     let vm = this;
     vm.form = {};
 
@@ -19,24 +19,32 @@ function etapa2Controller($scope, $location, $http) {
         //         }
 
 
-        $http({
-                url: 'http://jeanpuga.ddns.net:82/token',
+
+
+        http.post({
+                url: 'token',
                 method: "POST",
                 data: JSON.stringify(data)
             })
-            .then(
-                function(response) {
-                    console.log(response)
-                    $location.path("/etapa3");
+            .then(function(response) {
+                    // event.preventDefault();
+                    // $location.path("/etapa2");
+
+                    $rootScope.$apply(function() { $location.path('/etapa3'); });
+
+
                 },
                 function(err) { // optional
 
                     alert(JSON.stringify(err));
                     console.log(err) // failed
                 });
+
+
+
     }
     vm.action = action;
 
 }
 
-etapa2Controller.$inject = ['$scope', '$location', '$http'];
+etapa2Controller.$inject = ['$scope', '$location', 'http', '$rootScope'];
